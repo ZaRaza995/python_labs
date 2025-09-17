@@ -1,7 +1,7 @@
 # python_labs
 ## Лабораторная работа 1
 
-### 1задание
+### 1 задание
 
 ```name = input("Имя: ")
 age = int(input("Возраст: "))
@@ -10,7 +10,7 @@ print(f"Привет, {name}! Через год тебе будет {age + 1}.")
 ```
 ![alt text](images/lab01/ex01.png)
 
-## 2 задание
+### 2 задание
 
 ```a = float(input("Enter first number: ").replace(",", "."))
 b = float(input("Enter second number: ").replace(",", "."))
