@@ -50,7 +50,7 @@ print(f"{hours}:{minutes:02d}")
 ![alt text](images/lab01/ex04.png)
 
 
-### 4 задание
+### 5 задание
 
 ```fio = input("ФИО: ")
 fio_stripped = fio.strip()
