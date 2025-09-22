@@ -1,4 +1,4 @@
-def min_max(nums):
+def min_max (nums):
     if len(nums) == 0:
         raise ValueError("Список пуст")
     return min(nums), max(nums)
@@ -24,7 +24,6 @@ print(min_max([3, -1, 5, 0]))
 print(min_max([42]))
 print(min_max([-5, -2, -9]))
 
-# Пробуем вызвать функцию с пустым списком
 try:
     min_max([])
 except ValueError:
@@ -40,8 +39,6 @@ print(unique_sorted([-1, 0, -1, 2]))
 print("\n flatten ")
 print(flatten([[1, 2], [3, 4]]))
 print(flatten( ((1, 2), (3, 4, 5)) ))
-
-# Точно так же ловим ошибку TypeError для функции flatten
 try:
     flatten([[1], "a"])
 except TypeError:
