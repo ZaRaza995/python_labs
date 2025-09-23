@@ -8,7 +8,7 @@ def unique_sorted(nums):
     return sorted(set(nums))
 
 
-def flatten(matrix):
+def flatten(matrix):   
     result = []
     for row in matrix:
         if not isinstance(row, (list, tuple)):
