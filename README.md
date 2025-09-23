@@ -52,7 +52,8 @@ print(f"{hours}:{minutes:02d}")
 
 ### 5 задание
 
-```fio = input("ФИО: ")
+```
+fio = input("ФИО: ")
 fio_clean = " ".join(fio.split())
 initials = "".join([word[0].upper() for word in fio_clean.split()]) + "."
 length = len(fio_clean)
