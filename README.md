@@ -3,7 +3,8 @@
 
 ### 1 задание
 
-```name = input("Имя: ")
+```
+name = input("Имя: ")
 age = int(input("Возраст: "))
 
 print(f"Привет, {name}! Через год тебе будет {age + 1}.")
@@ -12,7 +13,8 @@ print(f"Привет, {name}! Через год тебе будет {age + 1}.")
 
 ### 2 задание
 
-```a = float(input("Enter first number: ").replace(",", "."))
+```
+a = float(input("Enter first number: ").replace(",", "."))
 b = float(input("Enter second number: ").replace(",", "."))
 
 s = a + b
@@ -24,7 +26,9 @@ print(f"sum={s:.2f}; avg={avg:.2f}")
 
 ### 3 задание
 
-```price = float(input("Цена: "))
+```
+
+price = float(input("Цена: "))
 discount = float(input("Скидка (%): "))
 vat = float(input("НДС (%): "))
 
@@ -36,17 +40,21 @@ print(f"База после скидки: {base:.2f} ₽")
 print(f"НДС: {vat_amount:.2f} ₽")
 print(f"Итого к оплате: {total:.2f} ₽")
 ```
+
 ![alt text](images/lab01/ex03.png)
 
 ### 4 задание
 
-```min = int(input("Минуты: "))
+```
+
+min = int(input("Минуты: "))
 
 hours = min // 60
 minutes = min % 60
 
 print(f"{hours}:{minutes:02d}")
 ```
+
 ![alt text](images/lab01/ex04.png)
 
 
