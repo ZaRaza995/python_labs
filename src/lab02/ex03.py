@@ -12,5 +12,3 @@ def format_record(rec: tuple[str, str, float]):
 
 test = ("Иванов Иван Иванович", "BIVT-25", 4.6)
 print(format_record(test))
-
-

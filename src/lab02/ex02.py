@@ -10,5 +10,12 @@ def transpose(mat: list[list[float | int]]):
     
     return [[row[j] for row in mat] for j in range(len(mat[0]))]
 
+
+try:
+    print(transpose([[1, 2], [3, 4, 5]]))
+except ValueError as error:
+    print(f"Ошибка: {error}")
+    
+    
 print(transpose([[1, 2, 3]]))
 print(transpose([[1, 2], [3, 4], [5, 6]]))

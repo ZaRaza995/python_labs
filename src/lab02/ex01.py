@@ -15,7 +15,6 @@ def flatten(mat: list[list | tuple]):
       result.append(item)
   return result
 
-
 print(min_max([3, -1, 5, 5, 0]))
 try:
     min_max([])  # ValueError
@@ -30,6 +29,3 @@ try:
     flatten([[1, 2], "не список"])  # TypeError
 except TypeError as error:
     print(f"Ошибка в flatten: {error}")
-
-
-
