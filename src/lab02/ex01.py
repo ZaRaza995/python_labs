@@ -15,17 +15,6 @@ def flatten(mat: list[list | tuple]):
       result.append(item)
   return result
 
-print(min_max([3, -1, 5, 5, 0]))
-try:
-    min_max([])  # ValueError
-except ValueError as error:
-    print(f"Ошибка в min_max: {error}")
-
+print(min_max([]))
 print(unique_sorted([3, 1, 2, 1, 3]))
-
-print(flatten([[1, 2], [3, 4]]))
-
-try:
-    flatten([[1, 2], "не список"])  # TypeError
-except TypeError as error:
-    print(f"Ошибка в flatten: {error}")
+print(flatten([[1, 2,], [3, 4],]))
