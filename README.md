@@ -97,19 +97,21 @@ def flatten(mat: list[list | tuple]):
   return result
 
 print(min_max([3, -1, 5, 5, 0]))
-try:
-    min_max([])  # ValueError
-except ValueError as error:
-    print(f"Ошибка в min_max: {error}")
+print(min_max([42]))
+print(min_max([-5, -2, -9]))
+print(min_max([1.5, 2, 2.0, -3.1]))
+print(min_max([]))
+
 
 print(unique_sorted([3, 1, 2, 1, 3]))
+print(unique_sorted([]))
+print(unique_sorted([-1, -1, 0, 2, 2 ]))
+print(unique_sorted([1.0, 1, 2.5, 2.5, 0]))
 
-print(flatten([[1, 2], [3, 4]]))
-
-try:
-    flatten([[1, 2], "не список"])  # TypeError
-except TypeError as error:
-    print(f"Ошибка в flatten: {error}")
+print(flatten([[1, 2,], [3, 4]]))
+print(flatten([[1, 2], (3, 4, 5)]))
+print(flatten([[1], [], [2, 3]]))
+print(flatten([[1, 2], "ab"]))
 ```
 
 ![alt text](images/lab02/lab02ex01.png)
@@ -125,19 +127,14 @@ def transpose(mat: list[list[float | int]]):
         return []
     if not is_rect(mat):
         raise ValueError("Матрица должна быть прямоугольной")
-
-    
     return [[row[j] for row in mat] for j in range(len(mat[0]))]
 
 
-try:
-    print(transpose([[1, 2], [3, 4, 5]]))
-except ValueError as error:
-    print(f"Ошибка: {error}")
-    
-    
 print(transpose([[1, 2, 3]]))
-print(transpose([[1, 2], [3, 4], [5, 6]]))
+print(transpose([[1, 2], [3, 4]]))
+print(transpose([]))
+print(transpose([[1, 2], [3]]))
+
 
 ```
 
@@ -151,15 +148,24 @@ def format_record(rec: tuple[str, str, float]):
     group = rec[1]
     gpa = rec[2]
     
-    name_parts = fio.strip().split()
+    if not isinstance(fio, str) or not fio.strip():
+        raise ValueError("ФИО должно быть не пустой строкой.")
+    if not isinstance(group, str) or not group.strip():
+        raise ValueError("Группа должна быть не пустой строкой.")
+    if not isinstance(gpa, (int, float)):
+        raise ValueError("GPA должно быть числом.")
     
+    name_parts = fio.split()    
     surname = name_parts[0]
     initials = "".join([part[0].upper() + "." for part in name_parts[1:]])
 
     return f"{surname} {initials}, гр. {group}, GPA {gpa:.2f}"
 
-test = ("Иванов Иван Иванович", "BIVT-25", 4.6)
-print(format_record(test))
+print(format_record(("Иванов Иван Иванович", "BIVT-25", 4.6)))
+print(format_record(("Петров Пётр", "IKBO-12", 5.0)))
+print(format_record(("Петров Пётр Петрович", "IKBO-12", 5.0)))
+print(format_record(("Петров Пётр Петрович", "IKBO-12", 5.0)))
+print(format_record(( 3013013 , "ABB-01", 3.999)))
 ```
 
 ![alt text](images/lab02/lab02ex03.png)

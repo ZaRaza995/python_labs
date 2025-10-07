@@ -6,8 +6,10 @@ def transpose(mat: list[list[float | int]]):
         return []
     if not is_rect(mat):
         raise ValueError("Матрица должна быть прямоугольной")
-
-    
     return [[row[j] for row in mat] for j in range(len(mat[0]))]
+
+
 print(transpose([[1, 2, 3]]))
-print(transpose([[1, 2 , 55], [3, 4], [5, 6]]))
+print(transpose([[1, 2], [3, 4]]))
+print(transpose([]))
+print(transpose([[1, 2], [3]]))
