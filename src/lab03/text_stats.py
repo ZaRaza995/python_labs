@@ -3,7 +3,6 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from lib.text import *
 
-
 input_text = sys.stdin.readline()
 normalized_text = normalize(input_text)
 tokens = tokenize(normalized_text)
@@ -18,4 +17,4 @@ print(f"Всего слов: {len(tokens)}")
 print(f"Уникальных слов: {len(frequencies)}")
 print("Топ-5:")
 for word, freq in top_5_words:
-    print(f"{word}:{freq}")
+        print(f"{word}:{freq}")

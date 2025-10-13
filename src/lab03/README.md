@@ -76,8 +76,8 @@ for word, freq in top_5_words:
 
 результат задания B
 
-![alt text](/images/lab03/ladb03exB1.png)
+![alt text](/images/lab03/lab03exB1.png)
 
 результат задания B (проверка на ошибку)
 
-![alt text](/images/lab03/lab03exB2.png)
+![alt text](../../images/lab03/lab03exB2.png)
