@@ -172,8 +172,11 @@ print(format_record(( 3013013 , "ABB-01", 3.999)))
 
 ## ЛАБОРАТОРНАЯ РАБОТА 4
 
-[io_txt_csv.py](src\lab04\io_txt_csv.py) -> модуль для работы с файлами
-[text_report.py](src\lab04\text_report.py) ->скрипт для генерации отчетов
+## Код программы
+
+- [io_txt_csv.py](src/lab04/io_txt_csv.py) - модуль для работы с файлами
+- [text_report.py](src/lab04/text_report.py) - скрипт генерации отчетов
+
 
 ### тест кейс
 
