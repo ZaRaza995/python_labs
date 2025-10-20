@@ -170,11 +170,10 @@ print(format_record(( 3013013 , "ABB-01", 3.999)))
 
 ![alt text](images/lab02/lab02ex03.png)
 
-
 ## ЛАБОРАТОРНАЯ РАБОТА 4
 
-[io_txt_csv.py](python_labs\src\lab04\io_txt_csv.py) -> модуль для работы с файлами
-[text_report.py](python_labs\src\lab04\text_report.py) ->скрипт для генерации отчетов
+[io_txt_csv.py](C:\Users\ASUS\python_labs\src\lab04\io_txt_csv.py) -> модуль для работы с файлами
+[text_report.py](C:\Users\ASUS\python_labs\src\lab04\text_report.py) ->скрипт для генерации отчетов
 
 ### тест кейс
 
