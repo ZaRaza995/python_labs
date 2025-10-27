@@ -177,9 +177,106 @@ print(format_record(( 3013013 , "ABB-01", 3.999)))
 - [io_txt_csv.py](src/lab04/io_txt_csv.py) - модуль для работы с файлами
 - [text_report.py](src/lab04/text_report.py) - скрипт генерации отчетов
 
-
 ### тест кейс
 
 ![alt text](images/lab04/exA1.png)
 
 ![alt text](images/lab04/exA2.png)
+
+## ЛАБОРАТОРНАЯ РАБОТА 5
+
+### Цель работы
+
+Разобраться с форматами JSON, CSV и XLSX. Реализовать конвертацию между форматами.
+
+### Код программы
+
+- [json_csv.py](src/lab05/json_csv.py) - модуль для конвертации JSON↔CSV
+- [csv_xlsx.py](src/lab05/csv_xlsx.py) - модуль для конвертации CSV→XLSX
+
+### Использование
+
+```python
+from src.lab05.json_csv import json_to_csv, csv_to_json
+from src.lab05.csv_xlsx import csv_to_xlsx
+
+# JSON -> CSV
+json_to_csv('src/data/lab05/samples/people.json', 'src/data/lab05/out/people_from_json.csv')
+
+# CSV -> JSON
+csv_to_json('src/data/lab05/samples/people.csv', 'src/data/lab05/out/people_from_csv.json')
+
+# CSV -> XLSX
+csv_to_xlsx('src/data/lab05/out/people_from_json.csv', 'src/data/lab05/out/people_from_json.xlsx')
+```
+
+### Проверка конвертаций
+
+#### Сценарий 1: JSON → CSV
+
+- Входной файл: `src/data/lab05/samples/people.json`
+- Результат: `src/data/lab05/out/people_from_json.csv`
+- Заголовки упорядочены по алфавиту
+- Отсутствующие поля заполняются пустыми строками
+
+#### Сценарий 2: CSV → JSON
+
+- Входной файл: `src/data/lab05/samples/people.csv`
+- Результат: `src/data/lab05/out/people_from_csv.json`
+- Все значения сохраняются как строки
+- Формат вывода: `ensure_ascii=False, indent=2`
+
+#### Сценарий 3: CSV → XLSX
+
+- Входной файл: `src/data/lab05/samples/cities.csv`
+- Результат: `src/data/lab05/out/cities.xlsx`
+- Автоматический подбор ширины колонок (минимум 8 символов)
+- Лист называется "Sheet1"
+
+### Результаты выполнения
+
+## Результаты выполнения
+
+### Входные данные
+
+#### people.csv
+
+![people.csv](images/lab05/img05.png)
+
+#### people.json
+
+![people.json](images/lab05/img04.png)
+
+#### cities.csv
+
+![cities.csv](images/lab05/img02.png)
+
+### Выходные файлы
+
+#### people_from_json.csv
+
+![people_from_json.csv](images/lab05/img03.png)
+
+#### cities_from_csv.xlsx
+
+![Excel файл](images/lab05/img01.png)
+
+people_from_json.xlsx
+![people_from_json.xlsx](images/lab05/img06.png)
+
+### Обработка ошибок
+
+- Несуществующий файл → `FileNotFoundError`
+- Пустой файл → `ValueError`
+- Некорректный формат JSON → `ValueError`
+- CSV без заголовка → `ValueError`
+
+### Зависимости
+
+Установка зависимостей:
+
+```bash
+pip install -r requirements.txt
+```
+
+Требуется только `openpyxl`. Остальное - стандартная библиотека Python.

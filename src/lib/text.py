@@ -1,9 +1,5 @@
 def normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str:
-    if text is None:
-        raise ValueError("Ошибка: текст не может быть None")
-    if not isinstance(text, str):
-        raise TypeError(f"Ошибка: ожидалась строка, получен {type(text).__name__}")
-    if len(text) == 0:
+    if not text:
         return ""
     if yo2e:
         text = text.replace('ё', 'е').replace('Ё', 'Е')
