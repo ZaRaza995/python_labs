@@ -52,33 +52,26 @@ csv_to_xlsx('src/data/lab05/out/people_from_json.csv', 'src/data/lab05/out/peopl
 
 ### Результаты выполнения
 
-## Результаты выполнения
-
 ### Входные данные
 
 #### people.csv
-
 ![people.csv](images/lab05/img05.png)
 
 #### people.json
-
 ![people.json](images/lab05/img04.png)
 
 #### cities.csv
-
 ![cities.csv](images/lab05/img02.png)
 
 ### Выходные файлы
 
 #### people_from_json.csv
-
 ![people_from_json.csv](images/lab05/img03.png)
 
 #### cities_from_csv.xlsx
-
 ![Excel файл](images/lab05/img01.png)
 
-people_from_json.xlsx
+#### people_from_json.xlsx
 ![people_from_json.xlsx](images/lab05/img06.png)
 
 ### Обработка ошибок
@@ -90,7 +83,7 @@ people_from_json.xlsx
 
 ### Зависимости
 
-Установка зависимостей:
+Установка дополнительной библиотеки:
 
 ```bash
 pip install -r requirements.txt
