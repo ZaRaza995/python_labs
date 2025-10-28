@@ -17,6 +17,10 @@ def csv_to_xlsx(csv_path: str, xlsx_path: str) -> None:
     # 1. Проверяем, что входной файл существует и является файлом
     if not csv_p.is_file():
         raise FileNotFoundError(f"Файл не найден или это папка: {csv_path}")
+    
+    # Проверка расширения файла - это должен быть .csv файл
+    if csv_p.suffix.lower() != '.csv':
+        raise ValueError(f"Файл должен иметь расширение .csv, получено: {csv_p.suffix} (файл: {csv_p.name})")
     # 2. Создаем новую Excel-книгу
     wb = openpyxl.Workbook()
     ws = wb.active

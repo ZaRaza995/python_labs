@@ -11,6 +11,11 @@ def json_to_csv(json_path: str, csv_path: str) -> None:
     # --- Проверки входных данных ---
     if not json_p.is_file(): # is_file() сразу проверяет, что это файл, а не папка, и что он существует
         raise FileNotFoundError(f"Файл не найден или это папка: {json_path}")
+    
+    # Проверка расширения файла - это должен быть .json файл
+    if json_p.suffix.lower() != '.json':
+        raise ValueError(f"Файл должен иметь расширение .json, получено: {json_p.suffix} (файл: {json_p.name})")
+    
     if json_p.stat().st_size == 0:
         raise ValueError(f"JSON-файл пуст: {json_path}")
     # --- Чтение и обработка ---
@@ -46,6 +51,10 @@ def csv_to_json(csv_path: str, json_path: str) -> None:
     # --- Проверки входных данных ---
     if not csv_p.is_file():
         raise FileNotFoundError(f"Файл не найден или это папка: {csv_path}")
+    
+    # Проверка расширения файла - это должен быть .csv файл
+    if csv_p.suffix.lower() != '.csv':
+        raise ValueError(f"Файл должен иметь расширение .csv, получено: {csv_p.suffix} (файл: {csv_p.name})")
     # --- Чтение и обработка ---
     data = []
     with csv_p.open('r', encoding='utf-8', newline='') as f:
