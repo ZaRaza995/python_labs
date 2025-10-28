@@ -11,45 +11,6 @@
 - [json_csv.py](src/lab05/json_csv.py) - модуль для конвертации JSON↔CSV
 - [csv_xlsx.py](src/lab05/csv_xlsx.py) - модуль для конвертации CSV→XLSX
 
-### Использование
-
-```python
-from src.lab05.json_csv import json_to_csv, csv_to_json
-from src.lab05.csv_xlsx import csv_to_xlsx
-
-# JSON -> CSV
-json_to_csv('src/data/lab05/samples/people.json', 'src/data/lab05/out/people_from_json.csv')
-
-# CSV -> JSON
-csv_to_json('src/data/lab05/samples/people.csv', 'src/data/lab05/out/people_from_csv.json')
-
-# CSV -> XLSX
-csv_to_xlsx('src/data/lab05/out/people_from_json.csv', 'src/data/lab05/out/people_from_json.xlsx')
-```
-
-### Проверка конвертаций
-
-#### Сценарий 1: JSON → CSV
-
-- Входной файл: `src/data/lab05/samples/people.json`
-- Результат: `src/data/lab05/out/people_from_json.csv`
-- Заголовки упорядочены по алфавиту
-- Отсутствующие поля заполняются пустыми строками
-
-#### Сценарий 2: CSV → JSON
-
-- Входной файл: `src/data/lab05/samples/people.csv`
-- Результат: `src/data/lab05/out/people_from_csv.json`
-- Все значения сохраняются как строки
-- Формат вывода: `ensure_ascii=False, indent=2`
-
-#### Сценарий 3: CSV → XLSX
-
-- Входной файл: `src/data/lab05/samples/cities.csv`
-- Результат: `src/data/lab05/out/cities.xlsx`
-- Автоматический подбор ширины колонок (минимум 8 символов)
-- Лист называется "Sheet1"
-
 ### Результаты выполнения
 
 ### Входные данные
