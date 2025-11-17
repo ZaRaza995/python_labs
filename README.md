@@ -4,6 +4,166 @@
 
 ---
 
+## ЛАБОРАТОРНАЯ РАБОТА 6
+
+### Цель работы
+
+Научиться создавать консольные инструменты с аргументами командной строки, подкомандами и флагами с использованием модуля `argparse`.
+
+### Код программы
+
+- [cli_text.py](src/lab06/cli_text.py) - CLI-утилиты для работы с текстом (cat и stats)
+- [cli_convert.py](src/lab06/cli_convert.py) - CLI-утилиты для конвертации данных (JSON, CSV, XLSX)
+
+### Команды cli_text.py
+
+#### Команда `cat`
+
+Выводит содержимое файла построчно с опциональной нумерацией строк.
+
+**Использование:**
+
+```bash
+python -m src.lab06.cli_text cat --input <путь_к_файлу> [-n]
+```
+
+**Параметры:**
+
+- `--input` (обязательный) - путь к входному файлу
+- `-n` (опциональный) - нумеровать строки
+
+**Примеры:**
+
+```bash
+# Вывод содержимого файла
+python -m src.lab06.cli_text cat --input src/data/lab04/input.txt
+
+# Вывод с нумерацией строк
+python -m src.lab06.cli_text cat --input src/data/lab04/input.txt -n
+
+# Вывод CSV файла с нумерацией
+python -m src.lab06.cli_text cat --input src/data/lab05/samples/people.csv -n
+```
+
+#### Команда `stats`
+
+Анализирует частоты слов в текстовом файле и выводит статистику.
+
+**Использование:**
+
+```bash
+python -m src.lab06.cli_text stats --input <путь_к_файлу> [--top N]
+```
+
+**Параметры:**
+
+- `--input` (обязательный) - путь к текстовому файлу
+- `--top` (опциональный) - количество топ-слов для вывода (по умолчанию: 5)
+
+**Примеры:**
+
+```bash
+# Анализ текста с топ-5 словами
+python -m src.lab06.cli_text cat --input src/data/lab06/samples/people.txt -n
+
+# Анализ с топ-5 словами
+python -m src.lab06.cli_text stats --input src/data/lab06/samples/people.txt --top 5
+```
+
+**Вывод команды stats:**
+
+```
+Всего слов: X
+Уникальных слов: Y
+Топ-5:
+  слово1: частота1
+  слово2: частота2
+  ...
+```
+
+### Команды cli_convert.py
+
+#### Команда `json2csv`
+
+Конвертирует JSON-файл (список словарей) в CSV-файл.
+
+**Использование:**
+```bash
+python -m src.lab06.cli_convert json2csv --in <входной.json> --out <выходной.csv>
+```
+
+**Пример:**
+```bash
+python -m src.lab06.cli_convert json2csv --in src/data/lab06/samples/people.json --out src/data/lab06/out/people.csv
+```
+
+#### Команда `csv2json`
+
+Конвертирует CSV-файл в JSON-файл (список словарей).
+
+**Использование:**
+```bash
+python -m src.lab06.cli_convert csv2json --in <входной.csv> --out <выходной.json>
+```
+
+**Пример:**
+```bash
+python -m src.lab06.cli_convert csv2json --in src/data/lab06/samples/people.csv --out src/data/lab06/out/people.json
+```
+
+#### Команда `csv2xlsx`
+
+Конвертирует CSV-файл в XLSX-файл.
+
+**Использование:**
+```bash
+python -m src.lab06.cli_convert csv2xlsx --in <входной.csv> --out <выходной.xlsx>
+```
+
+**Пример:**
+```bash
+python -m src.lab06.cli_convert csv2xlsx --in src/data/lab06/samples/people.csv --out src/data/lab06/out/people.xlsx
+```
+
+### Справка по командам
+
+Для получения справки по любой команде используйте флаг `--help`:
+
+```bash
+# Справка по cli_text
+python -m src.lab06.cli_text --help
+python -m src.lab06.cli_text cat --help
+python -m src.lab06.cli_text stats --help
+
+# Справка по cli_convert
+python -m src.lab06.cli_convert --help
+python -m src.lab06.cli_convert json2csv --help
+python -m src.lab06.cli_convert csv2json --help
+python -m src.lab06.cli_convert csv2xlsx --help
+```
+
+### Обработка ошибок
+
+- Несуществующий файл → `FileNotFoundError` с понятным сообщением
+- Неверные аргументы → вывод справки и сообщение об ошибке
+- Ошибки чтения файлов → обработка `UnicodeDecodeError`
+- Пустой файл при анализе → корректное сообщение пользователю
+- Неверные параметры (например, отрицательный `--top`) → `ValueError`
+
+### Зависимости
+
+- **Только стандартная библиотека Python** (`argparse`, `pathlib`, `sys`, `os`)
+- Использует функции из предыдущих лабораторных:
+  - `lib/text.py` - для анализа текста (нормализация, токенизация, подсчет частот)
+  - `lab05/json_csv.py` - для конвертации JSON ↔ CSV
+  - `lab05/csv_xlsx.py` - для конвертации CSV → XLSX
+
+### Демонстрация работы
+
+Скриншоты работы команд находятся в папке [images/lab06/](images/lab06/).
+
+---
+
 ## ЛАБОРАТОРНАЯ РАБОТА 5
 
 ### Цель работы
