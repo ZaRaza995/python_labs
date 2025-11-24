@@ -1,8 +1,10 @@
 import csv
 from pathlib import Path
+
 # Убедитесь, что openpyxl установлен: pip install openpyxl
 import openpyxl
 from openpyxl.utils import get_column_letter
+
 
 def csv_to_xlsx(csv_path: str, xlsx_path: str) -> None:
     """
@@ -17,18 +19,20 @@ def csv_to_xlsx(csv_path: str, xlsx_path: str) -> None:
     # 1. Проверяем, что входной файл существует и является файлом
     if not csv_p.is_file():
         raise FileNotFoundError(f"Файл не найден или это папка: {csv_path}")
-    
+
     # Проверка расширения файла - это должен быть .csv файл
-    if csv_p.suffix.lower() != '.csv':
-        raise ValueError(f"Файл должен иметь расширение .csv, получено: {csv_p.suffix} (файл: {csv_p.name})")
+    if csv_p.suffix.lower() != ".csv":
+        raise ValueError(
+            f"Файл должен иметь расширение .csv, получено: {csv_p.suffix} (файл: {csv_p.name})"
+        )
     # 2. Создаем новую Excel-книгу
     wb = openpyxl.Workbook()
     ws = wb.active
     ws.title = "Sheet1"
     # 3. Читаем данные из CSV и добавляем их в лист
-    with csv_p.open('r', encoding='utf-8', newline='') as f:
+    with csv_p.open("r", encoding="utf-8", newline="") as f:
         reader = csv.reader(f)
-        
+
         # Прочитаем первую строку, чтобы убедиться, что файл не пустой
         try:
             first_row = next(reader)
@@ -55,12 +59,13 @@ def csv_to_xlsx(csv_path: str, xlsx_path: str) -> None:
     # 5. Сохраняем XLSX-файл
     xlsx_p.parent.mkdir(parents=True, exist_ok=True)
     wb.save(str(xlsx_p))
-    
+
+
 if __name__ == "__main__":
     # Пример использования: создание XLSX из обновленного CSV
     csv_path = "src/data/lab05/out/people_from_json.csv"
     xlsx_path = "src/data/lab05/out/people_from_json.xlsx"
-    
+
     try:
         print(f"Создание XLSX из {csv_path}")
         csv_to_xlsx(csv_path, xlsx_path)

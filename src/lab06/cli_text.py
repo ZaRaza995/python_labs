@@ -4,6 +4,7 @@ from pathlib import Path
 
 # Добавляем путь к src для импорта модулей
 import os
+
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 
@@ -74,4 +75,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

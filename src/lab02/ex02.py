@@ -1,6 +1,7 @@
 def is_rect(mat: list[list[float | int]]) -> bool:
     return all(len(row) == len(mat[0]) for row in mat) if mat else True
 
+
 def transpose(mat: list[list[float | int]]):
     if not mat:
         return []
