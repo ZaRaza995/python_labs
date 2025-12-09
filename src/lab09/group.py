@@ -4,7 +4,6 @@ import os
 from pathlib import Path
 from typing import List, Dict, Any
 from src.lab08.models import Student
-from src.lab08.models import Student
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 class Group:
     
