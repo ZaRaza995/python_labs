@@ -27,7 +27,7 @@ class Student:
 
         # Проверка, что дата рождения не в будущем
         if b_date > date.today():
-             raise ValueError(f"Дата рождения не может быть в будущем: {self.birthdate}")
+            raise ValueError(f"Дата рождения не может быть в будущем: {self.birthdate}")
 
         # Валидация диапазона GPA
         if not (0 <= self.gpa <= 5):
