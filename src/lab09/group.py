@@ -1,8 +1,11 @@
 import csv
+import sys
+import os
 from pathlib import Path
 from typing import List, Dict, Any
 from src.lab08.models import Student
-
+from src.lab08.models import Student
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 class Group:
     
     def __init__(self, storage_path: str):
@@ -113,11 +116,7 @@ class Group:
         }
 
 if __name__ == "__main__":
-    import sys
-    import os
-    # Хак для путей, чтобы видеть пакет src
-    sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-    from src.lab08.models import Student
+    
 
     file_path = "src/data/lab09/students.csv"
     group = Group(file_path)
